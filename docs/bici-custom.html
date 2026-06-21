@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bici Custom — DPLab Bike Point</title>
+<meta name="description" content="Assembliamo bici su misura dal telaio. Scegli la geometria, i componenti, l'uso. Ci occupiamo di tutto. DPLab, Legnago (VR).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── PROCESS ── */
+.process-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--offwhite);
+}
+.process-section .section-desc { margin-top: 12px; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: clamp(40px, 6vw, 64px);
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--light) 20%, var(--light) 80%, transparent);
+}
+@media (max-width: 768px) {
+  .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .process-steps::before { display: none; }
+}
+@media (max-width: 480px) {
+  .process-steps { grid-template-columns: 1fr; }
+}
+
+.step {
+  text-align: center; padding: 0 20px;
+  position: relative;
+}
+.step-num {
+  width: 56px; height: 56px;
+  background: var(--white);
+  border: 2px solid var(--light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem; color: var(--navy);
+  margin: 0 auto 20px;
+  position: relative; z-index: 2;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 2px 8px rgba(25,42,61,0.08);
+}
+.step:first-child .step-num { border-color: var(--blue); color: var(--blue); }
+
+.step h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; color: var(--navy);
+  letter-spacing: 0.02em; margin-bottom: 8px;
+}
+.step p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.87rem; color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── GALLERY ── */
+.gallery-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--lighter);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+  margin-top: clamp(32px, 5vw, 48px);
+}
+@media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; } }
+@media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+.gallery-item {
+  border-radius: 12px; overflow: hidden;
+  position: relative; background: var(--navy);
+  display: flex; align-items: flex-end;
+  min-height: 200px;
+}
+.gallery-item.tall { grid-row: span 2; }
+
+.gallery-bg {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-bg svg { width: 64px; height: 64px; stroke: rgba(255,255,255,0.08); }
+
+.gallery-overlay {
+  position: relative; z-index: 2;
+  padding: 16px 20px;
+  background: linear-gradient(transparent, rgba(25,42,61,0.85));
+  width: 100%;
+}
+.gallery-overlay h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 600; color: var(--white);
+  margin-bottom: 2px;
+}
+.gallery-overlay span { font-size: 0.75rem; color: rgba(225,232,237,0.6); }
+
+/* color variations for gallery items */
+.g1 { background: linear-gradient(135deg, #192a3d 0%, #1e3a5f 100%); }
+.g2 { background: linear-gradient(135deg, #1a2a1a 0%, #1e4020 100%); }
+.g3 { background: linear-gradient(135deg, #2a1a2a 0%, #3d1a3d 100%); }
+.g4 { background: linear-gradient(135deg, #2a1a0a 0%, #5a2a0a 100%); }
+.g5 { background: linear-gradient(135deg, #1a1a2a 0%, #1a1a50 100%); }
+
+/* ── TYPES SECTION ── */
+.types-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--offwhite);
+}
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: clamp(32px, 5vw, 48px);
+}
+.type-card {
+  background: var(--white);
+  border-radius: 12px; padding: 28px 24px;
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+.type-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(25,42,61,0.08), 0 0 0 1px rgba(40,114,250,0.1); }
+
+.type-tag {
+  display: inline-block;
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 14px;
+}
+.type-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem; color: var(--navy);
+  letter-spacing: 0.02em; margin-bottom: 8px;
+}
+.type-card p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.85rem; color: var(--muted); line-height: 1.55;
+}
+
+/* ── CTA SECTION ── */
+.custom-cta {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--navy); text-align: center;
+  position: relative; overflow: hidden;
+}
+.custom-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(40,114,250,0.1), transparent);
+}
+.custom-cta .container { position: relative; z-index: 2; }
+.custom-cta h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white);
+  margin-bottom: 16px;
+}
+.custom-cta p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.05rem; color: rgba(225,232,237,0.75);
+  max-width: 500px; margin: 0 auto 32px; line-height: 1.65;
+}
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body class="page-body">
+
+<header class="site-header">
+  <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="prenotazioni.html">Servizi</a>
+    <a href="blog.html">Diario di bordo</a>
+    <a href="bici-custom.html" class="active">Bici Custom</a>
+    <a href="borderless.html">Borderless</a>
+    <a href="about.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Bici Custom</div>
+    <h1>Costruiamo la bici<br>che hai <em>in testa</em></h1>
+    <p>Dal telaio alla bici finita, assemblata su misura per come pedali tu. Ci sediamo, capiamo cosa vuoi, poi costruiamo pezzo per pezzo senza fretta.</p>
+    <a href="#inizia" class="btn btn-primary btn-lg">Inizia il progetto</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-label">Come funziona</div>
+    <h2 class="section-title">Dal foglio bianco alla strada</h2>
+    <p class="section-desc">Nessun catalogo da scorrere, nessuna scelta affrettata. Costruire una bici richiede tempo, e lo prendiamo.</p>
+
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Parliamo</h3>
+        <p>Una chiacchierata senza impegno: uso, stile, budget, preferenze. Capiamo cosa hai in mente.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Progettiamo</h3>
+        <p>Scegliamo telaio, geometria e componenti. Ti proponiamo le opzioni con pro, contro e prezzi.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Assembliamo</h3>
+        <p>Montiamo ogni componente a mano, regoliamo, testiamo. Nessun passaggio delegato a terzi.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h3>Consegniamo</h3>
+        <p>Ti mostriamo la bici, facciamo il setup finale insieme. Esci dall'officina pronto a pedalare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Bici costruite in officina</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item g1 tall reveal">
+        <div class="gallery-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M5 19l2-9h10l2 9"/><path d="M12 5l-2 5h4l-2-5z"/></svg></div>
+        <div class="gallery-overlay"><h4>Gravel All-road</h4><span>Telaio Dedacciai · Groupset GRX 812</span></div>
+      </div>
+      <div class="gallery-item g2 reveal">
+        <div class="gallery-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v5"/><polygon points="14 17 18 21 22 17 18 17"/></svg></div>
+        <div class="gallery-overlay"><h4>MTB Hardtail</h4><span>Telaio Propain · SRAM SX</span></div>
+      </div>
+      <div class="gallery-item g3 reveal">
+        <div class="gallery-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="gallery-overlay"><h4>Road da corsa</h4><span>Telaio in carbonio · Shimano 105</span></div>
+      </div>
+      <div class="gallery-item g4 reveal">
+        <div class="gallery-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div class="gallery-overlay"><h4>Urban Commuter</h4><span>Acciaio Reynolds · trasmissione a cinghia</span></div>
+      </div>
+      <div class="gallery-item g5 reveal">
+        <div class="gallery-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="gallery-overlay"><h4>MTB Full-suspension</h4><span>Telaio Propain Spindrift · SRAM Code</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section class="types-section">
+  <div class="container">
+    <div class="section-label">Categorie</div>
+    <h2 class="section-title">Che bici assembliamo</h2>
+    <div class="types-grid">
+      <div class="type-card card-shadow reveal">
+        <div class="type-tag" style="background:rgba(40,114,250,0.08);color:var(--blue)">Gravel</div>
+        <h3>Gravel / All-road</h3>
+        <p>La scelta di chi vuole andare ovunque. Dal pavé alle strade bianche, senza compromessi.</p>
+      </div>
+      <div class="type-card card-shadow reveal">
+        <div class="type-tag" style="background:rgba(18,161,155,0.08);color:var(--teal)">MTB</div>
+        <h3>MTB hardtail e full</h3>
+        <p>Geometrie XC, trail o enduro. Configuriamo sospensioni, freni e trasmissione per il tuo terreno.</p>
+      </div>
+      <div class="type-card card-shadow reveal">
+        <div class="type-tag" style="background:rgba(124,58,237,0.08);color:#7c3aed">Road</div>
+        <h3>Road da corsa</h3>
+        <p>Alluminio o carbonio, Shimano o SRAM. Costruiamo la bici da corsa che non trovi in negozio.</p>
+      </div>
+      <div class="type-card card-shadow reveal">
+        <div class="type-tag" style="background:rgba(240,0,105,0.08);color:var(--pink)">Urban</div>
+        <h3>Urban / Commuter</h3>
+        <p>Pratica, leggera, indistruttibile. Acciaio o titanio, cinghia o catena, con o senza motore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="custom-cta" id="inizia">
+  <div class="container">
+    <h2>Hai già un'idea? Parliamone.</h2>
+    <p>Non serve avere tutto chiaro. Basta sapere che vuoi qualcosa che non esiste nel catalogo.</p>
+    <div class="cta-actions">
+      <a href="prenotazioni.html" class="btn btn-primary btn-lg">Prenota una consulenza</a>
+      <a href="contatti.html" class="btn btn-ghost btn-lg">Scrivici</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="prenotazioni.html">Riparazione</a>
+        <a href="prenotazioni.html">Bike Fitting</a>
+        <a href="bici-custom.html">Bici Custom</a>
+        <a href="prenotazioni.html#abbonamenti">Abbonamenti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="blog.html">Diario di bordo</a>
+        <a href="borderless.html">Borderless Bikes</a>
+        <a href="about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+393715517275">371 551 7275</a>
+        <a href="contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point</span>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,1 +1,624 @@
-<h1>Test sito</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPLab Bike Point — Ciclofficina artigiana a Legnago (VR)</title>
+<meta name="description" content="La ciclofficina di Legnago. Riparazione, bike fitting, bici custom, accessori, corsi e cicloturismo. Prenota online.">
+<meta property="og:title" content="DPLab Bike Point — Ciclofficina a Legnago">
+<meta property="og:description" content="La poesia è sul sentiero. DPLab: ciclofficina artigiana per MTB, Gravel e Road a Legnago (VR).">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  min-height: min(90vh, 700px);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 35%, rgba(40,114,250,0.13), transparent),
+    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(18,161,155,0.08), transparent);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: clamp(56px, 10vw, 100px) 0;
+  max-width: 680px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(18,161,155,0.1);
+  border: 1px solid rgba(18,161,155,0.22);
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  color: var(--white); line-height: 1.0;
+  letter-spacing: 0.02em; margin-bottom: 8px;
+}
+.hero h1 .accent { color: var(--blue); }
+.hero-tagline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: rgba(225,232,237,0.75);
+  font-style: italic;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+.hero-sub {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  color: var(--light); line-height: 1.65;
+  max-width: 520px; margin-bottom: 36px;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ── PROOF BAR ── */
+.proof-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+  padding: 18px 0;
+}
+.proof-inner {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+  gap: 8px 0;
+}
+.proof-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.82rem; color: var(--muted);
+  padding: 4px 28px;
+  border-right: 1px solid var(--light);
+}
+.proof-item:last-child { border-right: none; }
+.proof-item strong { font-size: 1rem; color: var(--navy); font-weight: 700; }
+@media (max-width: 640px) {
+  .proof-item { border-right: none; border-bottom: 1px solid var(--light); width: 100%; justify-content: center; }
+  .proof-item:last-child { border-bottom: none; }
+}
+
+/* ── SERVICES TEASER ── */
+.services-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--offwhite);
+}
+.services-header { margin-bottom: clamp(36px, 5vw, 56px); }
+.services-header .section-desc { margin-top: 12px; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.service-teaser {
+  background: var(--white);
+  border-radius: 12px;
+  padding: clamp(24px, 3vw, 36px);
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  position: relative; overflow: hidden;
+}
+
+.service-teaser:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 24px rgba(40,114,250,0.1),
+    0 16px 48px rgba(25,42,61,0.06),
+    0 0 0 1px rgba(40,114,250,0.15);
+}
+
+.service-teaser.featured {
+  background: var(--navy);
+  grid-column: span 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; align-items: center;
+}
+@media (max-width: 640px) {
+  .service-teaser.featured { grid-column: 1; grid-template-columns: 1fr; }
+}
+
+.service-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; color: var(--lighter);
+  line-height: 1; margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.service-teaser.featured .service-num { color: rgba(40,114,250,0.2); font-size: 5rem; }
+
+.service-icon {
+  width: 48px; height: 48px;
+  background: var(--lighter);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.service-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--navy); fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.service-teaser.featured .service-icon {
+  background: rgba(40,114,250,0.15);
+}
+.service-teaser.featured .service-icon svg { stroke: var(--blue); }
+
+.service-teaser h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; color: var(--navy);
+  letter-spacing: 0.02em; margin-bottom: 8px;
+}
+.service-teaser.featured h3 { color: var(--white); font-size: 2rem; }
+
+.service-teaser p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.9rem; color: var(--muted);
+  line-height: 1.6; margin-bottom: 20px;
+}
+.service-teaser.featured p { color: rgba(225,232,237,0.75); }
+
+/* ── BLOG PREVIEW ── */
+.blog-preview {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--lighter);
+}
+.blog-preview-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: clamp(32px, 5vw, 48px);
+  flex-wrap: wrap; gap: 16px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
+@media (min-width: 481px) and (max-width: 768px) { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.article-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+}
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(25,42,61,0.1), 0 0 0 1px rgba(40,114,250,0.12);
+}
+
+.article-thumb {
+  height: 180px;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
+}
+.article-thumb-bg {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.article-thumb-bg svg { width: 48px; height: 48px; opacity: 0.15; stroke: var(--white); }
+
+.article-cat-chip {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--blue); color: var(--white);
+  padding: 3px 10px; border-radius: 4px;
+}
+
+.article-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+.article-body h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--navy); line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.article-body p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.84rem; color: var(--muted);
+  line-height: 1.55; margin-bottom: 16px; flex: 1;
+}
+
+.article-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.72rem; color: var(--muted);
+}
+
+/* ── LSG COMMUNITY ── */
+.community {
+  padding: clamp(56px, 8vw, 80px) 0;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.community::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(18,161,155,0.08), transparent);
+}
+.community .container { position: relative; z-index: 2; }
+
+.community-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: center;
+}
+@media (max-width: 768px) { .community-inner { grid-template-columns: 1fr; } }
+
+.community-text .section-label { color: var(--teal); }
+.community-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--white); margin-bottom: 16px;
+}
+.community-text p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem; color: rgba(225,232,237,0.75);
+  line-height: 1.65; margin-bottom: 28px;
+}
+
+.events-list { display: grid; gap: 12px; }
+.event-row {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 16px 20px;
+  display: flex; align-items: center; gap: 20px;
+}
+.event-date-block { text-align: center; min-width: 44px; }
+.event-date-block .day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; color: var(--white); line-height: 1;
+}
+.event-date-block .mon {
+  font-size: 0.65rem; font-weight: 700;
+  color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em;
+}
+.event-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+.event-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.event-info span { font-size: 0.78rem; color: rgba(225,232,237,0.55); }
+
+/* ── ABBONAMENTI STRIP ── */
+.abbonamenti-strip {
+  padding: clamp(48px, 7vw, 80px) 0;
+  background: var(--blue);
+  text-align: center;
+}
+.abbonamenti-strip h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--white); margin-bottom: 12px;
+}
+.abbonamenti-strip p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.05rem; color: rgba(255,255,255,0.8);
+  max-width: 480px; margin: 0 auto 32px; line-height: 1.6;
+}
+.plans-row {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.plan-pill {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 40px; padding: 10px 24px;
+  text-align: center; cursor: pointer;
+  transition-property: background, border-color;
+  transition-duration: 0.18s;
+  min-width: 140px;
+}
+.plan-pill:hover { background: rgba(255,255,255,0.2); }
+.plan-pill .plan-name { font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
+.plan-pill .plan-price {
+  font-size: 1.4rem; font-weight: 700; color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+.plan-pill .plan-freq { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body class="page-body">
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav" aria-label="Navigazione principale">
+    <a href="index.html" class="active">Home</a>
+    <a href="prenotazioni.html">Servizi</a>
+    <a href="blog.html">Diario di bordo</a>
+    <a href="bici-custom.html">Bici Custom</a>
+    <a href="borderless.html">Borderless</a>
+    <a href="about.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span>
+        Ciclofficina artigiana · Legnago (VR)
+      </div>
+      <h1>DPLab<br><span class="accent">Bike Point</span></h1>
+      <p class="hero-tagline">"La poesia è sul sentiero"</p>
+      <p class="hero-sub">Passione per la bici e competenza meccanica sotto lo stesso tetto. MTB, Gravel, Road: riparazione, fitting, bici custom e molto altro. Tutto prenotabile online.</p>
+      <div class="hero-actions">
+        <a href="prenotazioni.html" class="btn btn-primary btn-lg">Prenota un servizio</a>
+        <a href="about.html" class="btn btn-ghost btn-lg">Chi siamo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-inner container">
+    <div class="proof-item"><strong>Preventivo</strong>&nbsp;gratuito prima di ogni intervento</div>
+    <div class="proof-item"><strong>MTB · Gravel · Road</strong>&nbsp;e molto altro</div>
+    <div class="proof-item"><strong>Propain</strong>&nbsp;Expert Center</div>
+    <div class="proof-item"><strong>Online</strong>&nbsp;in 30 secondi</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">Servizi</div>
+      <h2 class="section-title">Cosa facciamo per te</h2>
+      <p class="section-desc">Quattro aree, un punto di riferimento. Che tu abbia bisogno di una riparazione rapida o di costruire la bici dei tuoi sogni.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- FEATURED: Assistenza -->
+      <article class="service-teaser featured card-shadow reveal" style="--card-delay:0ms">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Assistenza</h3>
+          <p>Cambio che salta, freno che sfrega, ruota che trema. Porti la bici, ti diciamo cosa serve prima di toccare un bullone. Preventivo sempre incluso.</p>
+          <a href="prenotazioni.html#assistenza" class="btn btn-secondary btn-sm">Prenota intervento</a>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <div class="service-num" style="font-size:7rem;color:rgba(40,114,250,0.1);line-height:1">01</div>
+        </div>
+      </article>
+
+      <!-- Vendita -->
+      <article class="service-teaser card-shadow reveal" style="--card-delay:80ms">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3>Vendita</h3>
+        <p>Accessori e ricambi selezionati. Dici cosa ti serve, quando passi è già sul banco.</p>
+        <a href="prenotazioni.html#vendita" class="btn btn-outline btn-sm">Richiedi disponibilità</a>
+      </article>
+
+      <!-- Custom -->
+      <article class="service-teaser card-shadow reveal" style="--card-delay:160ms">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Bici Custom</h3>
+        <p>Dal telaio alla bici finita, costruita su misura per come pedali tu.</p>
+        <a href="bici-custom.html" class="btn btn-outline btn-sm">Inizia il progetto</a>
+      </article>
+
+      <!-- Bike Fitting -->
+      <article class="service-teaser card-shadow reveal" style="--card-delay:240ms">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Bike Fitting</h3>
+        <p>Posizione in sella su misura. Pedali di più, ti stanchi di meno.</p>
+        <a href="prenotazioni.html#fitting" class="btn btn-outline btn-sm">Prenota sessione</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="blog-preview">
+  <div class="container">
+    <div class="blog-preview-header">
+      <div>
+        <div class="section-label">Diario di bordo</div>
+        <h2 class="section-title">Ultime dal bancone</h2>
+      </div>
+      <a href="blog.html" class="btn btn-outline btn-sm">Tutti gli articoli →</a>
+    </div>
+
+    <div class="articles-grid">
+
+      <a href="blog.html" class="article-card card-shadow reveal">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#192a3d,#2872fa20)">
+          <div class="article-thumb-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="article-cat-chip">Officina</div>
+        </div>
+        <div class="article-body">
+          <h3>Falsa maglia bici: si può riutilizzare?</h3>
+          <p>La risposta dipende dal tipo e da quante volte è già stata aperta. Guida pratica per non sbagliare.</p>
+          <div class="article-meta"><span>Mar 2025</span><span>5 min →</span></div>
+        </div>
+      </a>
+
+      <a href="blog.html" class="article-card card-shadow reveal">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#192a3d,#12a19b20)">
+          <div class="article-thumb-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="article-cat-chip" style="background:var(--teal)">Officina</div>
+        </div>
+        <div class="article-body">
+          <h3>DPLab diventa Propain Expert Center</h3>
+          <p>Siamo ora centro specializzato Propain. Cosa significa per chi ha una Propain in officina.</p>
+          <div class="article-meta"><span>Gen 2025</span><span>4 min →</span></div>
+        </div>
+      </a>
+
+      <a href="blog.html" class="article-card card-shadow reveal">
+        <div class="article-thumb" style="background:linear-gradient(135deg,#192a3d,#f0006920)">
+          <div class="article-thumb-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg></div>
+          <div class="article-cat-chip" style="background:var(--pink)">Bikepacking</div>
+        </div>
+        <div class="article-body">
+          <h3>All'ospedale con la bici</h3>
+          <p>Un racconto di quei giorni, il commuting forzato, e perché la bici è diventata ancora più necessaria.</p>
+          <div class="article-meta"><span>Nov 2024</span><span>7 min →</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LSG COMMUNITY -->
+<section class="community">
+  <div class="container">
+    <div class="community-inner">
+      <div class="community-text reveal">
+        <div class="section-label">Community</div>
+        <h2>LSG — Legnago Social Gravel</h2>
+        <p>Ghiaia, strade bianche, ritmo umano. Nessuna iscrizione: ti presenti, si parte. Segui i prossimi eventi e pedala con noi.</p>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank" class="btn btn-ghost btn-sm">Segui su Instagram</a>
+      </div>
+      <div class="events-list reveal">
+        <div class="event-row">
+          <div class="event-date-block"><div class="day">28</div><div class="mon">GIU</div></div>
+          <div class="event-sep"></div>
+          <div class="event-info"><h4>Gravel serale — Valli Grandi</h4><span>Ritrovo DPLab ore 18:30 · ~40 km</span></div>
+        </div>
+        <div class="event-row">
+          <div class="event-date-block"><div class="day">06</div><div class="mon">LUG</div></div>
+          <div class="event-sep"></div>
+          <div class="event-info"><h4>Social ride — Lungo Adige</h4><span>Ritrovo DPLab ore 8:00 · ~60 km</span></div>
+        </div>
+        <div class="event-row">
+          <div class="event-date-block"><div class="day">19</div><div class="mon">LUG</div></div>
+          <div class="event-sep"></div>
+          <div class="event-info"><h4>Bikepacking overnighter</h4><span>Partenza DPLab ore 16:00 · rientro mattina dopo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABBONAMENTI STRIP -->
+<section class="abbonamenti-strip">
+  <div class="container">
+    <h2>Manutenzione programmata a prezzo fisso</h2>
+    <p>Tagliandi, sconti ricambi, fitting incluso. Paghi ogni mese, pedali senza pensieri.</p>
+    <div class="plans-row">
+      <div class="plan-pill">
+        <div class="plan-name">Base</div>
+        <div class="plan-price">9 €</div>
+        <div class="plan-freq">/mese · 2 tagliandi/anno</div>
+      </div>
+      <div class="plan-pill">
+        <div class="plan-name">Standard</div>
+        <div class="plan-price">19 €</div>
+        <div class="plan-freq">/mese · fitting incluso</div>
+      </div>
+      <div class="plan-pill">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">29 €</div>
+        <div class="plan-freq">/mese · illimitato</div>
+      </div>
+    </div>
+    <a href="prenotazioni.html#abbonamenti" class="btn btn-primary btn-lg">Scegli il piano</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="prenotazioni.html">Riparazione</a>
+        <a href="prenotazioni.html">Bike Fitting</a>
+        <a href="bici-custom.html">Bici Custom</a>
+        <a href="prenotazioni.html">Corsi</a>
+        <a href="prenotazioni.html#abbonamenti">Abbonamenti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="blog.html">Diario di bordo</a>
+        <a href="borderless.html">Borderless Bikes</a>
+        <a href="about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="mailto:dplab.owner@outlook.com">dplab.owner@outlook.com</a>
+        <a href="contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/DanielePomin/" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point — La ciclofficina di Legnago</span>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      const delay = e.target.style.getPropertyValue('--card-delay') || '0ms';
+      setTimeout(() => e.target.classList.add('visible'), parseInt(delay));
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 72, behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>

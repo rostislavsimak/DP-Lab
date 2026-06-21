@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — DPLab Bike Point</title>
+<meta name="description" content="Dove siamo, quando siamo aperti, come scriverci. DPLab Bike Point, ciclofficina a Legnago (VR).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── CONTACT LAYOUT ── */
+.contact-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--offwhite);
+}
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 56px; align-items: start;
+}
+@media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+/* ── INFO PANEL ── */
+.info-panel { display: grid; gap: 20px; }
+
+.info-card {
+  background: var(--white);
+  border-radius: 12px; padding: 24px;
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.info-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--lighter); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.info-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; }
+
+.info-content h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.info-content p, .info-content a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; color: var(--text);
+  text-decoration: none; display: block;
+  line-height: 1.5;
+}
+.info-content a:hover { color: var(--blue); }
+
+/* ── HOURS TABLE ── */
+.hours-card {
+  background: var(--navy);
+  border-radius: 12px; padding: 24px;
+}
+.hours-card h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--slate); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.88rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row .day { color: var(--light); }
+.hours-row .time { color: rgba(225,232,237,0.55); font-variant-numeric: tabular-nums; }
+.hours-row.today .day { color: var(--teal); font-weight: 600; }
+.hours-row.today .time { color: var(--teal); }
+.hours-row.closed .time { color: rgba(225,232,237,0.3); }
+
+/* ── CONTACT FORM ── */
+.form-card {
+  background: var(--white);
+  border-radius: 16px; padding: clamp(28px, 4vw, 48px);
+}
+.form-card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; color: var(--navy);
+  letter-spacing: 0.02em; margin-bottom: 6px;
+}
+.form-card .form-subtitle {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.9rem; color: var(--muted); margin-bottom: 28px; line-height: 1.5;
+}
+.form-grid { display: grid; gap: 16px; }
+.form-grid .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 480px) { .form-grid .two-col { grid-template-columns: 1fr; } }
+
+.form-submit-btn {
+  width: 100%; justify-content: center; padding: 14px;
+  font-size: 0.95rem; border-radius: 10px; margin-top: 4px;
+}
+
+.form-success {
+  display: none;
+  text-align: center; padding: 40px 20px;
+}
+.form-success .check-icon {
+  width: 56px; height: 56px;
+  background: rgba(18,161,155,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.form-success .check-icon svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 2.5; }
+.form-success h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem; color: var(--navy); margin-bottom: 8px;
+}
+.form-success p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.95rem; color: var(--muted); line-height: 1.6;
+}
+
+/* ── MAP PLACEHOLDER ── */
+.map-section {
+  background: var(--lighter);
+  padding-bottom: 0;
+}
+.map-section .container { padding-bottom: 0; }
+.map-section .section-label { margin-bottom: 8px; }
+.map-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--navy); margin-bottom: 32px; }
+
+.map-frame {
+  height: 380px;
+  background: var(--navy);
+  border-radius: 16px 16px 0 0;
+  overflow: hidden; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.map-pin-visual {
+  text-align: center; position: relative; z-index: 2;
+}
+.map-pin-visual svg {
+  width: 56px; height: 56px;
+  stroke: var(--blue); fill: none; stroke-width: 1.5;
+  opacity: 0.6; display: block; margin: 0 auto 12px;
+}
+.map-pin-visual p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; color: rgba(225,232,237,0.5);
+}
+.map-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── SOCIAL LINKS ── */
+.social-row {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-top: 8px;
+}
+.social-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--navy); text-decoration: none;
+  background: var(--lighter); border-radius: 8px;
+  padding: 8px 14px;
+  transition-property: background, color;
+  transition-duration: 0.18s;
+}
+.social-link:hover { background: var(--light); }
+.social-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+</style>
+</head>
+<body class="page-body">
+
+<header class="site-header">
+  <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="prenotazioni.html">Servizi</a>
+    <a href="blog.html">Diario di bordo</a>
+    <a href="bici-custom.html">Bici Custom</a>
+    <a href="borderless.html">Borderless</a>
+    <a href="about.html">Chi siamo</a>
+    <a href="contatti.html" class="active">Contatti</a>
+    <a href="prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Contatti</div>
+    <h1>Dove trovarci<br>e <em>come scriverci</em></h1>
+    <p>Siamo a Legnago. Passare di persona è sempre la scelta migliore, ma se preferisci scrivere, rispondiamo.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+
+      <!-- INFO -->
+      <div class="info-panel">
+
+        <div class="info-card card-shadow reveal">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="info-content">
+            <h4>Indirizzo</h4>
+            <p>Via Pierdomenico Frattini, 33<br>37045 Legnago (VR)</p>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:4px">Parcheggio libero nelle vicinanze</p>
+          </div>
+        </div>
+
+        <div class="info-card card-shadow reveal">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="info-content">
+            <h4>Contatti</h4>
+            <a href="tel:+393715517275">371 551 7275</a>
+            <a href="mailto:dplab.owner@outlook.com" style="margin-top:4px">dplab.owner@outlook.com</a>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:4px">Risposta entro 24h lavorative</p>
+          </div>
+        </div>
+
+        <div class="info-card card-shadow reveal">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="info-content">
+            <h4>Social</h4>
+            <div class="social-row">
+              <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/DanielePomin/" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hours-card reveal">
+          <h4>Orari</h4>
+          <div class="hours-row closed"><span class="day">Domenica</span><span class="time">Chiuso</span></div>
+          <div class="hours-row closed"><span class="day">Lunedì</span><span class="time">Chiuso</span></div>
+          <div class="hours-row today"><span class="day">Martedì</span><span class="time">09:00 – 12:30 · 15:00 – 19:00</span></div>
+          <div class="hours-row today"><span class="day">Mercoledì</span><span class="time">09:00 – 12:30 · 15:00 – 19:00</span></div>
+          <div class="hours-row today"><span class="day">Giovedì</span><span class="time">09:00 – 12:30 · 15:00 – 19:00</span></div>
+          <div class="hours-row today"><span class="day">Venerdì</span><span class="time">09:00 – 12:30 · 15:00 – 19:00</span></div>
+          <div class="hours-row"><span class="day">Sabato</span><span class="time">16:00 – 19:00</span></div>
+        </div>
+
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card card-shadow reveal">
+        <h2>Scrivici</h2>
+        <p class="form-subtitle">Per prenotazioni usa la <a href="prenotazioni.html" style="color:var(--blue);text-decoration:none">pagina servizi</a>. Per domande generali, siamo qui.</p>
+
+        <div id="contactForm">
+          <div class="form-grid">
+            <div class="two-col">
+              <div class="form-group">
+                <label for="cf-nome">Nome</label>
+                <input type="text" id="cf-nome" placeholder="Marco">
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" placeholder="marco@email.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-oggetto">Oggetto</label>
+              <select id="cf-oggetto">
+                <option>Informazioni generali</option>
+                <option>Riparazione / preventivo</option>
+                <option>Bici custom</option>
+                <option>Corsi e workshop</option>
+                <option>LSG — Legnago Social Gravel</option>
+                <option>Altro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-msg">Messaggio</label>
+              <textarea id="cf-msg" placeholder="Racconta cosa cerchi..."></textarea>
+            </div>
+            <button class="btn btn-primary form-submit-btn" onclick="submitForm()">Invia messaggio</button>
+          </div>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Messaggio inviato</h3>
+          <p>Ci hai scritto. Risponderemo entro 24 ore lavorative. Nel frattempo, puoi <a href="prenotazioni.html" style="color:var(--blue)">prenotare un servizio online</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-label">Dove siamo</div>
+    <h2 class="section-title">Legnago (VR)</h2>
+    <div class="map-frame">
+      <div class="map-grid-overlay" aria-hidden="true"></div>
+      <div class="map-pin-visual">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p>Legnago, 37045 (VR)<br>Apri in Google Maps</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="prenotazioni.html">Riparazione</a>
+        <a href="prenotazioni.html">Bike Fitting</a>
+        <a href="bici-custom.html">Bici Custom</a>
+        <a href="prenotazioni.html#abbonamenti">Abbonamenti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="blog.html">Diario di bordo</a>
+        <a href="borderless.html">Borderless Bikes</a>
+        <a href="about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+393715517275">371 551 7275</a>
+        <a href="contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/DanielePomin/" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point</span>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function submitForm() {
+  const nome = document.getElementById('cf-nome').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  if (!nome || !email) { alert('Inserisci nome e email per continuare.'); return; }
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

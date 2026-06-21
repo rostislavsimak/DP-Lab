@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenota un servizio — DPLab Bike Point</title>
+<meta name="description" content="DPLab Bike Point: ciclofficina artigiana a Legnago (VR). Riparazione bici, bike fitting, bici custom, accessori, corsi di meccanica e consulenza cicloturismo. Prenota online.">
+<meta name="keywords" content="ciclofficina legnago, riparazione bici legnago, bike fitting verona, officina bici legnago, bici custom verona, negozio bici legnago">
+<meta name="author" content="DPLab Bike Point">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dplab.altervista.org/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DPLab Bike Point — Ciclofficina a Legnago">
+<meta property="og:description" content="Riparazione, bike fitting, bici custom, accessori e corsi. Prenota tutto online in un unico posto.">
+<meta property="og:url" content="https://dplab.altervista.org/">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="DPLab Bike Point">
+
+<!-- JSON-LD LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://dplab.altervista.org/#business",
+  "name": "DPLab Bike Point",
+  "alternateName": "DPLab — La ciclofficina di Legnago",
+  "description": "Ciclofficina artigiana a Legnago: riparazione e manutenzione bici, bike fitting, assemblaggio bici custom, vendita accessori e ricambi, consulenza cicloturismo, corsi di meccanica ciclistica e abbonamenti di manutenzione programmata.",
+  "url": "https://dplab.altervista.org/",
+  "telephone": "+39-esempio",
+  "email": "dplab.owner@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via esempio",
+    "addressLocality": "Legnago",
+    "addressRegion": "VR",
+    "postalCode": "37045",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.1908,
+    "longitude": 11.3087
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi DPLab",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Riparazione e manutenzione bici", "description": "Riparazione e manutenzione per city bike, MTB, road, e-bike, gravel, enduro"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bike Fitting", "description": "Regolazione della posizione in sella su misura per road, gravel, MTB e triathlon"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bici Custom", "description": "Assemblaggio bici su misura partendo dal telaio"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Vendita accessori e ricambi"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consulenza cicloturismo e bikepacking"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corsi e workshop di meccanica ciclistica"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Abbonamenti manutenzione programmata"}}
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/dplab_bikepoint/",
+    "https://www.facebook.com/dplabbikepoint"
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quali tipi di bici riparate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ripariamo tutti i tipi di bici: city bike, MTB, bici da corsa (road), e-bike, gravel e enduro. Ogni intervento include un preventivo trasparente prima di procedere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come funziona il bike fitting da DPLab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il bike fitting è una sessione individuale in cui regoliamo la posizione in sella su misura per il tuo corpo e il tuo stile di pedalata. Disponibile per road, gravel, MTB e triathlon. Prenotabile direttamente online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso farmi assemblare una bici custom?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sì. Assembliamo bici su misura partendo dal telaio che preferisci. Ne parliamo insieme per capire uso, budget e preferenze, poi ci occupiamo di tutto l'assemblaggio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cosa sono gli abbonamenti DPLab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sono piani di manutenzione programmata a prezzo fisso mensile. Includono tagliandi periodici, sconti sui ricambi e, nei piani più completi, sessioni di bike fitting e consulenza incluse."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #192a3d;
+  --slate: #3A4F66;
+  --blue: #2872fa;
+  --blue-dark: #1559ed;
+  --teal: #12a19b;
+  --pink: #f00069;
+  --pink-dark: #d4005b;
+  --light: #e1e8ed;
+  --lighter: #f2f5f7;
+  --offwhite: #f8f9fb;
+  --white: #fafcff;
+  --text: #1e2a36;
+  --text-muted: #5a6a7a;
+  --header-h: 60px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--offwhite);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li, .faq-answer-inner { text-wrap: pretty; }
+
+/* ── UTILITIES ── */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+/* ── HEADER ── */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h);
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 32px);
+  box-shadow: 0 2px 16px rgba(25,42,61,0.3);
+}
+
+.header-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-logo span { color: var(--blue); }
+
+.header-nav {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.header-nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--light);
+  text-decoration: none;
+  padding: 8px 12px;
+  min-height: 40px;
+  display: inline-flex; align-items: center;
+  border-radius: 4px;
+  transition-property: color, background;
+  transition-duration: 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.header-nav a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+.header-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--white) !important;
+  background: var(--pink) !important;
+  padding: 8px 18px !important;
+  border-radius: 6px !important;
+  transition: background 0.2s !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.header-cta:hover { background: var(--pink-dark) !important; }
+
+@media (max-width: 640px) {
+  .header-nav a:not(.header-cta) { display: none; }
+}
+
+/* ── HERO ── */
+.hero {
+  margin-top: var(--header-h);
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  min-height: min(85vh, 640px);
+  display: flex; align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(40,114,250,0.12), transparent),
+    radial-gradient(ellipse 60% 50% at 20% 70%, rgba(18,161,155,0.08), transparent);
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 640px;
+  padding: clamp(48px, 8vw, 80px) clamp(20px, 5vw, 48px);
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--teal);
+  background: rgba(18,161,155,0.12);
+  border: 1px solid rgba(18,161,155,0.25);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--blue);
+}
+
+.hero-sub {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: var(--light);
+  max-width: 480px;
+  margin-bottom: 32px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+}
+
+.btn {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition-property: background, color, border-color, transform, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.btn-lg {
+  font-size: 0.92rem;
+  padding: 14px 28px;
+}
+
+.btn-primary {
+  background: var(--pink);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--pink-dark); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--light);
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+
+.btn-sm {
+  font-size: 0.82rem;
+  padding: 10px 20px;
+}
+
+.btn-secondary {
+  background: var(--blue);
+  color: var(--white);
+}
+.btn-secondary:hover { background: var(--blue-dark); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--light);
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+.btn-teal {
+  background: var(--teal);
+  color: var(--white);
+}
+.btn-teal:hover { background: #0f8d88; }
+
+/* ── SOCIAL PROOF BAR ── */
+.proof-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+  padding: 16px 0;
+  text-align: center;
+}
+
+.proof-bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 40px;
+  align-items: center;
+}
+
+.proof-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.proof-item strong {
+  font-size: 1.1rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── SECTION TITLES ── */
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--navy);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ── SERVICES ── */
+.services {
+  padding: clamp(48px, 8vw, 80px) 0;
+  background: var(--offwhite);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.services-header .section-desc { margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: clamp(24px, 3vw, 32px);
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(25,42,61,0.06),
+    0 2px 8px rgba(25,42,61,0.04),
+    0 0 0 1px rgba(25,42,61,0.06);
+}
+
+.service-card:hover {
+  box-shadow:
+    0 4px 16px rgba(40,114,250,0.10),
+    0 8px 32px rgba(25,42,61,0.06),
+    0 0 0 1px rgba(40,114,250,0.18);
+  transform: translateY(-2px);
+}
+
+.service-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--navy);
+  color: var(--light);
+}
+
+@media (min-width: 640px) {
+  .service-card--featured {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+}
+
+.service-card--featured h3 { color: var(--white); }
+.service-card--featured p { color: rgba(225,232,237,0.85); }
+.service-card--featured .service-icon {
+  background: rgba(40,114,250,0.15);
+}
+.service-card--featured .service-icon svg { stroke: var(--blue); }
+.service-card--featured .service-form { border-top-color: rgba(255,255,255,0.1); }
+.service-card--featured .form-group label { color: rgba(225,232,237,0.7); }
+.service-card--featured .form-group select,
+.service-card--featured .form-group input,
+.service-card--featured .form-group textarea {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.12);
+  color: var(--white);
+}
+.service-card--featured .form-group select:focus,
+.service-card--featured .form-group input:focus,
+.service-card--featured .form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(40,114,250,0.2);
+}
+.service-card--featured .slot-btn {
+  border-color: rgba(255,255,255,0.15);
+  color: rgba(225,232,237,0.8);
+}
+.service-card--featured .slot-btn:hover,
+.service-card--featured .slot-btn.selected {
+  border-color: var(--blue);
+  background: rgba(40,114,250,0.12);
+  color: var(--blue);
+}
+.service-card--featured .btn-outline {
+  color: var(--light);
+  border-color: rgba(255,255,255,0.2);
+}
+.service-card--featured.booked {
+  border-color: transparent;
+  box-shadow:
+    0 1px 2px rgba(25,42,61,0.06),
+    0 2px 8px rgba(25,42,61,0.04),
+    0 0 0 1px rgba(18,161,155,0.3);
+}
+
+.service-card.booked {
+  box-shadow:
+    0 1px 2px rgba(25,42,61,0.06),
+    0 2px 8px rgba(25,42,61,0.04),
+    0 0 0 1px rgba(18,161,155,0.3);
+}
+
+.service-icon {
+  width: 44px; height: 44px;
+  background: var(--lighter);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+
+.service-icon svg {
+  width: 22px; height: 22px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.service-card.booked h3 { color: var(--teal); }
+
+.service-card p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.service-card .btn { width: 100%; justify-content: center; }
+
+.service-card.booked .btn {
+  background: var(--teal);
+  pointer-events: none;
+}
+
+/* ── SERVICE FORMS ── */
+.service-form {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+.service-form.open {
+  max-height: 550px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--light);
+}
+
+.form-fields {
+  display: grid; gap: 12px;
+}
+
+.form-group {
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+.form-group label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  padding: 10px 12px;
+  border: 1.5px solid var(--light);
+  border-radius: 6px;
+  background: var(--offwhite);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(40,114,250,0.1);
+}
+
+.form-group textarea { resize: vertical; min-height: 56px; }
+
+.form-submit {
+  margin-top: 4px;
+}
+
+/* date/slot buttons */
+.slot-options {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+
+.slot-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 500;
+  padding: 10px 14px;
+  min-height: 40px;
+  border: 1.5px solid var(--light);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition-property: border-color, background, color;
+  transition-duration: 0.2s;
+  color: var(--text);
+}
+
+.slot-btn:hover, .slot-btn.selected {
+  border-color: var(--blue);
+  background: rgba(40,114,250,0.06);
+  color: var(--blue);
+}
+
+/* plan cards */
+.plans-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 500px) {
+  .plans-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.plan-option {
+  border: 1.5px solid var(--light);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition-property: border-color, background;
+  transition-duration: 0.2s;
+  text-align: center;
+}
+
+.plan-option:hover, .plan-option.selected {
+  border-color: var(--pink);
+  background: rgba(240,0,105,0.04);
+}
+
+.plan-option h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.plan-option .price {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-option .detail {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* booked banner */
+.booked-banner {
+  display: none;
+  align-items: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--teal);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-top: 16px;
+  animation: slideIn 0.4s ease;
+}
+
+.booked-banner.show { display: flex; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--navy);
+  padding: clamp(40px, 6vw, 64px) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(40,114,250,0.1), transparent);
+}
+
+.cta-band .container { position: relative; z-index: 2; }
+
+.cta-band h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.cta-band p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  color: var(--light);
+  margin-bottom: 24px;
+  max-width: 480px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* ── COMMUNITY ── */
+.community {
+  padding: clamp(48px, 8vw, 72px) 0;
+  background: var(--lighter);
+}
+
+.community-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .community-inner { grid-template-columns: 1fr 1fr; }
+}
+
+.community-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.community-text p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.community-events {
+  display: grid; gap: 12px;
+}
+
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--light);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+
+.event-date {
+  text-align: center;
+  min-width: 48px;
+}
+
+.event-date .day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.event-date .month {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.event-info h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.event-info span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ── FAQ ── */
+.faq {
+  padding: clamp(48px, 8vw, 72px) 0;
+  background: var(--offwhite);
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid; gap: 8px;
+}
+
+.faq-item {
+  border: 1px solid var(--light);
+  border-radius: 8px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.faq-question {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: none; border: none;
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+  transition: color 0.2s;
+}
+
+.faq-question:hover { color: var(--blue); }
+.faq-question:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+
+.faq-arrow {
+  width: 20px; height: 20px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  stroke: var(--slate);
+}
+
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.open .faq-answer { max-height: 200px; }
+
+.faq-answer-inner {
+  padding: 0 20px 16px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy);
+  padding: clamp(32px, 5vw, 48px) 0 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+}
+
+.footer-brand .header-logo {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.footer-brand p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--slate);
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.footer-col h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--slate);
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--blue); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--slate);
+  text-align: center;
+}
+
+/* ── ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 400px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" role="banner" style="z-index:200">
+  <a href="index.html" class="header-logo" aria-label="DPLab Bike Point — Homepage" style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:0.08em;color:#fafcff;text-decoration:none">DP<span style="color:#2872fa">LAB</span></a>
+  <button onclick="this.nextElementSibling.classList.toggle('open')" style="display:none;background:none;border:none;cursor:pointer;color:#e1e8ed;padding:8px" id="mobileToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="header-nav" aria-label="Navigazione principale">
+    <a href="index.html">Home</a>
+    <a href="prenotazioni.html" style="color:#fff;background:rgba(255,255,255,0.07)">Servizi</a>
+    <a href="blog.html">Diario di bordo</a>
+    <a href="bici-custom.html">Bici Custom</a>
+    <a href="borderless.html">Borderless</a>
+    <a href="about.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="#servizi" class="header-cta">Prenota ora</a>
+  </nav>
+</header>
+<script>
+(function(){
+  const t=document.getElementById('mobileToggle');
+  if(window.innerWidth<=640){t.style.display='flex';}
+  window.addEventListener('resize',()=>{t.style.display=window.innerWidth<=640?'flex':'none';});
+})();
+</script>
+
+<!-- HERO -->
+<section class="hero" role="banner" aria-label="Presentazione DPLab">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content container">
+    <div class="hero-badge">Ciclofficina artigiana · Legnago (VR)</div>
+    <h1>La tua bici merita<br>un'<em>officina vera</em></h1>
+    <p class="hero-sub">Riparazione, fitting, bici su misura, corsi e cicloturismo. Sette servizi, un posto solo. Prenota in 30 secondi.</p>
+    <div class="hero-actions">
+      <a href="#servizi" class="btn btn-primary btn-lg">Scegli e prenota</a>
+      <a href="#faq" class="btn btn-ghost btn-lg">Come funziona</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-bar">
+  <div class="proof-bar-inner container">
+    <div class="proof-item"><strong>Preventivo</strong> prima di ogni intervento</div>
+    <div class="proof-item"><strong>6 tipi</strong> di bici: city · MTB · road · e-bike · gravel · enduro</div>
+    <div class="proof-item"><strong>30 sec</strong> per prenotare online</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servizi" aria-label="Servizi">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">Servizi</div>
+      <h2 class="section-title">Scegli, prenota, pedala</h2>
+      <p class="section-desc">Ogni servizio ha il suo form. Compila, scegli lo slot, conferma. Ti aspettiamo in officina.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1. Riparazione (featured) -->
+      <article class="service-card service-card--featured reveal" data-service="riparazione">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Riparazione e manutenzione</h3>
+        <p>Cambio che salta, freno che sfrega, ruota storta. Portala, ti diciamo cosa serve e quanto costa prima di toccare un bullone. City bike, MTB, road, e-bike, gravel, enduro.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Prenota intervento</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="r-tipo">Tipo di bici</label>
+              <select id="r-tipo"><option>City bike</option><option>MTB</option><option>Road</option><option>E-bike</option><option>Gravel</option><option>Enduro</option></select>
+            </div>
+            <div class="form-group">
+              <label for="r-prob">Descrivi il problema</label>
+              <textarea id="r-prob" placeholder="Es. freno che sfrega, cambio che salta..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Quando preferisci</label>
+              <div class="slot-options">
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Lun 23 Giu — AM</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Mar 24 Giu — PM</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Gio 26 Giu — AM</button>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Conferma prenotazione</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Intervento prenotato</div>
+      </article>
+
+      <!-- 2. Accessori -->
+      <article class="service-card reveal" data-service="accessori">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-4-4"/></svg>
+        </div>
+        <h3>Accessori e ricambi</h3>
+        <p>Catene, copertoni, luci, borse. Scrivici cosa ti serve: quando passi in officina, è già pronto sul banco.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Richiedi disponibilit&agrave;</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="a-cat">Categoria</label>
+              <select id="a-cat"><option>Trasmissione</option><option>Freni</option><option>Copertoni / camere</option><option>Luci</option><option>Borse e portapacchi</option><option>Altro</option></select>
+            </div>
+            <div class="form-group">
+              <label for="a-det">Cosa cerchi</label>
+              <input type="text" id="a-det" placeholder="Es. catena Shimano 11v, borsa Ortlieb 20L...">
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Invia richiesta</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Richiesta inviata</div>
+      </article>
+
+      <!-- 3. Bici custom -->
+      <article class="service-card reveal" data-service="custom">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Bici custom</h3>
+        <p>Dal telaio alla bici finita, assemblata per te. Ci sediamo, capiamo cosa vuoi e come pedali, poi costruiamo pezzo per pezzo.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Inizia il progetto</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="c-tipo">Che bici hai in mente?</label>
+              <select id="c-tipo"><option>Gravel / All-road</option><option>MTB hardtail</option><option>MTB full</option><option>Road</option><option>Urban / Commuter</option><option>Non so ancora</option></select>
+            </div>
+            <div class="form-group">
+              <label for="c-budget">Budget indicativo</label>
+              <select id="c-budget"><option>Sotto 1.000 €</option><option>1.000 – 2.000 €</option><option>2.000 – 3.500 €</option><option>Oltre 3.500 €</option><option>Vediamo insieme</option></select>
+            </div>
+            <div class="form-group">
+              <label for="c-note">Note</label>
+              <textarea id="c-note" placeholder="Telaio preferito, componenti, uso principale..."></textarea>
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Manda la richiesta</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Richiesta inviata — ti ricontattiamo</div>
+      </article>
+
+      <!-- 4. Bike fitting -->
+      <article class="service-card reveal" data-service="fitting">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Bike fitting</h3>
+        <p>Sessione individuale: regoliamo sella, manubrio e tacchette sul tuo corpo. Pedali di più, ti stanchi di meno. Road, gravel, MTB, triathlon.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Prenota la sessione</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="f-disc">Disciplina</label>
+              <select id="f-disc"><option>Road</option><option>Gravel</option><option>MTB</option><option>Triathlon / Crono</option><option>Urban</option></select>
+            </div>
+            <div class="form-group">
+              <label>Prossime disponibilit&agrave;</label>
+              <div class="slot-options">
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Mer 25 Giu — 10:00</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Ven 27 Giu — 15:00</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Lun 30 Giu — 10:00</button>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Conferma fitting</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Sessione prenotata</div>
+      </article>
+
+      <!-- 5. Cicloturismo -->
+      <article class="service-card reveal" data-service="cicloturismo">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg>
+        </div>
+        <h3>Consulenza cicloturismo</h3>
+        <p>Bikepacking, tour, tracce GPX. Ti aiutiamo a scegliere il percorso e preparare la bici. Tu pensi a pedalare.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Chiedi consulenza</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="t-tipo">Tipo di viaggio</label>
+              <select id="t-tipo"><option>Weekend bikepacking</option><option>Tour 3-7 giorni</option><option>Viaggio lungo (7+ gg)</option><option>Solo tracce GPX</option></select>
+            </div>
+            <div class="form-group">
+              <label for="t-dest">Zona / destinazione</label>
+              <input type="text" id="t-dest" placeholder="Es. Dolomiti, Via Claudia Augusta...">
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Invia richiesta</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Consulenza richiesta</div>
+      </article>
+
+      <!-- 6. Corsi -->
+      <article class="service-card reveal" data-service="corsi">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Corsi e workshop</h3>
+        <p>Meccanica base, manutenzione, regolazione cambio. Impari facendo, in officina.</p>
+        <button class="btn btn-primary btn-sm" onclick="toggleForm(this)">Iscriviti al prossimo</button>
+        <div class="service-form">
+          <div class="form-fields">
+            <div class="form-group">
+              <label>Prossimi corsi</label>
+              <div class="slot-options">
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Sab 28 Giu — Meccanica base (3h)</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Sab 5 Lug — Regolazione cambio (2h)</button>
+                <button type="button" class="slot-btn" onclick="pickSlot(this)">Sab 12 Lug — Tubeless setup (2h)</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="co-exp">Livello</label>
+              <select id="co-exp"><option>Zero — mai aperto un attrezzo</option><option>Base — gonfiare e poco altro</option><option>Intermedio — cambio pastiglie, regolo freni</option></select>
+            </div>
+            <button class="btn btn-secondary btn-sm form-submit" onclick="bookService(this)">Conferma iscrizione</button>
+          </div>
+        </div>
+        <div class="booked-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Iscrizione confermata</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABBONAMENTI -->
+<section class="cta-band" id="abbonamenti" aria-label="Abbonamenti">
+  <div class="container">
+    <div class="section-label" style="color: var(--teal);">Abbonamenti</div>
+    <h2>Manutenzione programmata a prezzo fisso</h2>
+    <p>Scegli il piano che ti serve. Tagliandi, sconti ricambi, fitting incluso nei piani completi. Paghi ogni mese, pedali senza pensieri.</p>
+    <div class="plans-grid" style="max-width:600px; margin: 0 auto 24px;">
+      <div class="plan-option" onclick="pickPlan(this)" tabindex="0">
+        <h4>Base</h4>
+        <div class="price">9 €/mese</div>
+        <div class="detail">2 tagliandi/anno<br>Sconto 10% ricambi</div>
+      </div>
+      <div class="plan-option" onclick="pickPlan(this)" tabindex="0">
+        <h4>Standard</h4>
+        <div class="price">19 €/mese</div>
+        <div class="detail">4 tagliandi/anno<br>Sconto 15% ricambi<br>1 fitting incluso</div>
+      </div>
+      <div class="plan-option" onclick="pickPlan(this)" tabindex="0">
+        <h4>Pro</h4>
+        <div class="price">29 €/mese</div>
+        <div class="detail">Tagliandi illimitati<br>Sconto 20% ricambi<br>Fitting + consulenza</div>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-lg" id="planCta" onclick="bookPlan()">Attiva il tuo abbonamento</button>
+    <div class="booked-banner" id="planBanner" style="max-width:400px; margin:16px auto 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Piano attivato</div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community" id="community" aria-label="Community">
+  <div class="container">
+    <div class="community-inner">
+      <div class="community-text">
+        <div class="section-label">Community</div>
+        <h2>LSG — Legnago Social Gravel</h2>
+        <p>Ghiaia, strade bianche, ritmo umano. Niente iscrizioni: ti presenti, si parte. Segui i prossimi eventi e pedala con noi.</p>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank" class="btn btn-outline btn-sm">Segui su Instagram</a>
+      </div>
+      <div class="community-events">
+        <div class="event-card">
+          <div class="event-date"><div class="day">28</div><div class="month">GIU</div></div>
+          <div class="event-info"><h4>Gravel serale — Valli Grandi</h4><span>Ritrovo DPLab ore 18:30 · ~40 km</span></div>
+        </div>
+        <div class="event-card">
+          <div class="event-date"><div class="day">06</div><div class="month">LUG</div></div>
+          <div class="event-info"><h4>Social ride — Lungo Adige</h4><span>Ritrovo DPLab ore 8:00 · ~60 km</span></div>
+        </div>
+        <div class="event-card">
+          <div class="event-date"><div class="day">19</div><div class="month">LUG</div></div>
+          <div class="event-info"><h4>Bikepacking overnighter</h4><span>Partenza DPLab ore 16:00 · rientro mattina dopo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-label="Domande frequenti">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Domande frequenti</h2>
+    </div>
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Quali tipi di bici riparate?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">Ripariamo tutti i tipi: city bike, MTB, bici da corsa, e-bike, gravel e enduro. Ogni intervento include un preventivo trasparente prima di procedere.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Come funziona il bike fitting?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">Il bike fitting è una sessione individuale in cui regoliamo la posizione in sella su misura per il tuo corpo e il tuo stile di pedalata. Disponibile per road, gravel, MTB e triathlon. Prenotabile direttamente online.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Posso farmi assemblare una bici custom?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">Sì. Assembliamo bici su misura partendo dal telaio che preferisci. Ne parliamo per capire uso, budget e preferenze, poi ci occupiamo di tutto.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Cosa includono gli abbonamenti?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">Sono piani di manutenzione programmata a prezzo fisso. Includono tagliandi periodici, sconti sui ricambi e, nei piani più completi, sessioni di bike fitting e consulenza incluse. Da 9 €/mese.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Devo portare la bici per un preventivo?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">Puoi prenotare online descrivendo il problema. Ti diamo un'idea dei tempi e, una volta vista la bici, il preventivo esatto prima di procedere. Niente sorprese.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-band" aria-label="Call to action finale">
+  <div class="container">
+    <h2>La tua bici ti sta aspettando</h2>
+    <p>Scegli il servizio, compila il form, ci vediamo in officina. 30 secondi.</p>
+    <a href="#servizi" class="btn btn-primary btn-lg">Prenota ora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="header-logo">DP<span style="color:var(--blue)">LAB</span></div>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="#servizi">Riparazione</a>
+        <a href="#servizi">Bike fitting</a>
+        <a href="#servizi">Bici custom</a>
+        <a href="#abbonamenti">Abbonamenti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/DanielePomin/" target="_blank">Facebook</a>
+        <a href="mailto:dplab.owner@outlook.com">Email</a>
+        <a href="#">Legnago (VR)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 DPLab Bike Point — La ciclofficina di Legnago &middot; Legnago (VR)
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── REVEAL ON SCROLL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── SERVICE FORMS ──
+function toggleForm(btn) {
+  const card = btn.closest('.service-card');
+  if (card.classList.contains('booked')) return;
+
+  const form = card.querySelector('.service-form');
+  const isOpen = form.classList.contains('open');
+
+  document.querySelectorAll('.service-form.open').forEach(f => f.classList.remove('open'));
+
+  if (!isOpen) {
+    form.classList.add('open');
+    btn.textContent = 'Chiudi';
+    btn.classList.remove('btn-primary');
+    btn.classList.add('btn-outline');
+  } else {
+    btn.textContent = btn.dataset.originalText || 'Prenota';
+    btn.classList.add('btn-primary');
+    btn.classList.remove('btn-outline');
+  }
+}
+
+// store original button text
+document.querySelectorAll('.service-card .btn-primary').forEach(btn => {
+  btn.dataset.originalText = btn.textContent;
+});
+
+function pickSlot(btn) {
+  btn.closest('.slot-options').querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function pickPlan(card) {
+  card.closest('.plans-grid').querySelectorAll('.plan-option').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+
+function bookService(btn) {
+  const card = btn.closest('.service-card');
+  const form = card.querySelector('.service-form');
+  const banner = card.querySelector('.booked-banner');
+  const toggle = card.querySelector('[data-original-text]');
+
+  form.classList.remove('open');
+  card.classList.add('booked');
+  banner.classList.add('show');
+
+  if (toggle) {
+    toggle.textContent = 'Prenotato';
+    toggle.classList.remove('btn-outline');
+    toggle.classList.add('btn-primary');
+  }
+}
+
+function bookPlan() {
+  const banner = document.getElementById('planBanner');
+  const cta = document.getElementById('planCta');
+  banner.classList.add('show');
+  cta.textContent = 'Piano attivato';
+  cta.style.background = 'var(--teal)';
+  cta.style.pointerEvents = 'none';
+}
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    i.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    item.querySelector('.faq-answer').setAttribute('aria-hidden', 'false');
+  }
+}
+
+// ── SMOOTH SCROLL OFFSET ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

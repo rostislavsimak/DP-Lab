@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diario di bordo — DPLab Bike Point</title>
+<meta name="description" content="Attrezzatura, officina, tech, bikepacking, overnighter. Storie, guide e tutorial dal bancone di DPLab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── CATEGORY FILTER ── */
+.filter-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+  position: sticky; top: var(--header-h); z-index: 100;
+}
+.filter-inner {
+  display: flex; gap: 4px; padding: 12px 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.filter-inner::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--muted); background: none;
+  border: 1.5px solid transparent;
+  border-radius: 6px; padding: 7px 16px;
+  cursor: pointer; white-space: nowrap;
+  transition-property: color, background, border-color;
+  transition-duration: 0.18s;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.filter-btn:hover { color: var(--navy); background: var(--lighter); }
+.filter-btn.active {
+  color: var(--blue);
+  border-color: rgba(40,114,250,0.3);
+  background: rgba(40,114,250,0.06);
+}
+
+/* ── BLOG GRID ── */
+.blog-section { padding: clamp(48px, 7vw, 80px) 0; }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .blog-grid { grid-template-columns: 1fr; } }
+
+.post-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(25,42,61,0.1), 0 0 0 1px rgba(40,114,250,0.12);
+}
+.post-card[data-hidden] { display: none; }
+
+.post-thumb {
+  height: 200px;
+  position: relative; flex-shrink: 0;
+  overflow: hidden;
+}
+.post-thumb-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.post-thumb-inner svg { width: 56px; height: 56px; opacity: 0.12; stroke: var(--white); }
+
+.post-cat {
+  position: absolute; top: 14px; left: 14px;
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 4px 12px; border-radius: 4px;
+  color: var(--white);
+}
+
+.post-body {
+  padding: 22px; flex: 1; display: flex; flex-direction: column;
+}
+.post-body h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 600; color: var(--navy);
+  line-height: 1.4; margin-bottom: 10px;
+}
+.post-body p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.85rem; color: var(--muted);
+  line-height: 1.6; flex: 1; margin-bottom: 18px;
+}
+.post-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.72rem; color: var(--muted);
+}
+.post-read { color: var(--blue); font-weight: 600; }
+
+/* Featured post */
+.post-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+@media (max-width: 560px) { .post-card.featured { flex-direction: column; } }
+
+.post-card.featured .post-thumb {
+  width: 45%; height: auto; min-height: 280px;
+  flex-shrink: 0;
+}
+@media (max-width: 560px) { .post-card.featured .post-thumb { width: 100%; min-height: 200px; } }
+.post-card.featured .post-body { padding: 32px; }
+.post-card.featured h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.post-card.featured p { font-size: 0.95rem; }
+
+/* ── PAGINATION ── */
+.pagination {
+  display: flex; justify-content: center; align-items: center;
+  gap: 8px; padding: 40px 0 0;
+}
+.page-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--light);
+  border-radius: 8px; background: var(--white);
+  font-size: 0.85rem; font-weight: 600; color: var(--muted);
+  cursor: pointer;
+  transition-property: border-color, color, background;
+  transition-duration: 0.18s;
+}
+.page-btn.active, .page-btn:hover { border-color: var(--blue); color: var(--blue); background: rgba(40,114,250,0.06); }
+</style>
+</head>
+<body class="page-body">
+
+<header class="site-header">
+  <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="prenotazioni.html">Servizi</a>
+    <a href="blog.html" class="active">Diario di bordo</a>
+    <a href="bici-custom.html">Bici Custom</a>
+    <a href="borderless.html">Borderless</a>
+    <a href="about.html">Chi siamo</a>
+    <a href="contatti.html">Contatti</a>
+    <a href="prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Diario di bordo</div>
+    <h1>Storie dal bancone<br>e <em>dal sentiero</em></h1>
+    <p>Officina, tech, bikepacking, overnighter. Scriviamo quando abbiamo qualcosa da dire, non per riempire pagine.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-inner" role="tablist" aria-label="Categorie">
+      <button class="filter-btn active" data-cat="tutti" onclick="filterPosts('tutti', this)">Tutti</button>
+      <button class="filter-btn" data-cat="officina" onclick="filterPosts('officina', this)">Officina</button>
+      <button class="filter-btn" data-cat="tech" onclick="filterPosts('tech', this)">Tech</button>
+      <button class="filter-btn" data-cat="attrezzatura" onclick="filterPosts('attrezzatura', this)">Attrezzatura</button>
+      <button class="filter-btn" data-cat="bikepacking" onclick="filterPosts('bikepacking', this)">Bikepacking</button>
+      <button class="filter-btn" data-cat="overnighter" onclick="filterPosts('overnighter', this)">Overnighter</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-grid">
+
+      <!-- FEATURED -->
+      <a href="blog/propain-expert-center.html" class="post-card featured card-shadow reveal" data-cat="officina">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#192a3d 0%,#1a3a5c 100%)">
+          <div class="post-thumb-inner"><img src="img/Logo-Propain-Expert-Center.png" alt="Propain Expert Center" style="width:80%;max-width:200px;opacity:0.9;object-fit:contain;filter:brightness(0) invert(1)"></div>
+          <div class="post-cat" style="background:var(--blue)">Officina</div>
+        </div>
+        <div class="post-body">
+          <h2>DPLab diventa Propain Expert Center</h2>
+          <p>Siamo ora uno dei pochi centri autorizzati Propain in Italia. Significa assistenza specializzata, ricambi originali e un interlocutore diretto con il brand. Cosa cambia per chi ha una Propain in officina e cosa stiamo preparando per i prossimi mesi.</p>
+          <div class="post-footer"><span>Gen 2025 · 4 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 1 -->
+      <a href="blog/falsa-maglia.html" class="post-card card-shadow reveal" data-cat="attrezzatura officina tech">
+        <div class="post-thumb" style="background:url('img/Infografica-missing-link-2.png') center/cover no-repeat,linear-gradient(135deg,#192a3d,#2872fa18)">
+          <div class="post-cat" style="background:var(--blue)">Officina</div>
+        </div>
+        <div class="post-body">
+          <h2>Falsa maglia bici: si può riutilizzare?</h2>
+          <p>La risposta dipende dal tipo e da quante volte è già stata aperta. Guida pratica per non sbagliare.</p>
+          <div class="post-footer"><span>Mar 2025 · 5 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="blog/tutorial-rotori.html" class="post-card card-shadow reveal" data-cat="officina">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#192a3d,#12a19b20)">
+          <div class="post-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+          <div class="post-cat" style="background:var(--teal)">Officina</div>
+        </div>
+        <div class="post-body">
+          <h2>Tutorial: installazione rotori a centro-lock</h2>
+          <p>Coppia di serraggio, ordine di montaggio, strumenti necessari. Tutto quello che serve per non fare danni.</p>
+          <div class="post-footer"><span>Ott 2024 · 6 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="blog/dischi-freno.html" class="post-card card-shadow reveal" data-cat="officina tech">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#1a2a40,#3a1f60)">
+          <div class="post-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="post-cat" style="background:#7c3aed">Tech</div>
+        </div>
+        <div class="post-body">
+          <h2>Dischi freno: tecnologie avanzate a confronto</h2>
+          <p>Aciaio inox, alluminio, carbonio. Peso, dissipazione del calore, durata. Un confronto senza sconti.</p>
+          <div class="post-footer"><span>Set 2024 · 8 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a href="blog/ospedale-con-bici.html" class="post-card card-shadow reveal" data-cat="overnighter">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#192a3d,#f0006918)">
+          <div class="post-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg></div>
+          <div class="post-cat" style="background:var(--pink)">Bikepacking</div>
+        </div>
+        <div class="post-body">
+          <h2>All'ospedale con la bici</h2>
+          <p>Un racconto di quei giorni, il commuting forzato, e perché la bici è diventata ancora più necessaria.</p>
+          <div class="post-footer"><span>Nov 2024 · 7 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a href="blog/controlli-bike-tour.html" class="post-card card-shadow reveal" data-cat="attrezzatura bikepacking officina">
+        <div class="post-thumb" style="background:url('img/controlli-hero.jpg') center/cover no-repeat,linear-gradient(135deg,#1a3020,#ea580c18)">
+          <div class="post-cat" style="background:var(--pink)">Bikepacking</div>
+        </div>
+        <div class="post-body">
+          <h2>Controlli da fare alla bici prima di un bike tour</h2>
+          <p>Check list delle cose da controllare sulla bici prima di ogni partenza. Fatti bene, evitano stress e sorprese.</p>
+          <div class="post-footer"><span>Apr 2025 · 5 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 6 -->
+      <a href="blog/pneumatici.html" class="post-card card-shadow reveal" data-cat="attrezzatura tech">
+        <div class="post-thumb" style="background:url('img/Banner-pneumatici-960.png') center/cover no-repeat,linear-gradient(135deg,#1a1535,#7c3aed20)">
+          <div class="post-cat" style="background:#7c3aed">Tech</div>
+        </div>
+        <div class="post-body">
+          <h2>Pneumatici per bici: guida completa per strada, gravel e gravity</h2>
+          <p>Carcasse, mescole, TPI, tubeless e pressioni. Come scegliere il compromesso giusto per ogni disciplina.</p>
+          <div class="post-footer"><span>Apr 2025 · 10 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 7 -->
+      <a href="blog/borse-waterproof.html" class="post-card card-shadow reveal" data-cat="attrezzatura bikepacking">
+        <div class="post-thumb" style="background:url('img/Borse-bikepacking.webp') center/cover no-repeat,linear-gradient(135deg,#0a1a2a,#2872fa20)">
+          <div class="post-cat" style="background:#ea580c">Attrezzatura</div>
+        </div>
+        <div class="post-body">
+          <h2>Borse Waterproof o Water Resistant?</h2>
+          <p>Differenze tecniche, materiali e contesti d'uso. Come scegliere la protezione giusta per il tuo viaggio.</p>
+          <div class="post-footer"><span>Gen 2025 · 6 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+      <!-- Post 8 -->
+      <a href="blog/overnighter.html" class="post-card card-shadow reveal" data-cat="bikepacking overnighter">
+        <div class="post-thumb" style="background:linear-gradient(135deg,#192a3d,#f0006920)">
+          <div class="post-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+          <div class="post-cat" style="background:var(--pink)">Overnighter</div>
+        </div>
+        <div class="post-body">
+          <h2>Overnighter: la ricetta della libertà</h2>
+          <p>Una sola notte fuori casa, la bici carica del minimo indispensabile. Come funziona, cosa portare e come scegliere la meta.</p>
+          <div class="post-footer"><span>Gen 2025 · 5 min</span><span class="post-read">Leggi →</span></div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="prenotazioni.html">Riparazione</a>
+        <a href="prenotazioni.html">Bike Fitting</a>
+        <a href="bici-custom.html">Bici Custom</a>
+        <a href="prenotazioni.html#abbonamenti">Abbonamenti</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="blog.html">Diario di bordo</a>
+        <a href="borderless.html">Borderless Bikes</a>
+        <a href="about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+393715517275">371 551 7275</a>
+        <a href="contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point</span>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function filterPosts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(card => {
+    const cats = card.dataset.cat.split(' ');
+    card.style.display = (cat === 'tutti' || cats.includes(cat)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
