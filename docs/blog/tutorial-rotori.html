@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial installazione rotori — DPLab Bike Point</title>
+<meta name="description" content="Come installare o sostituire un rotore freno: verifica usura, sequenza a stella, coppia di serraggio, rodaggio. Tutorial completo da DPLab Bike Point, Legnago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.article-hero { background: var(--navy); padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 5vw, 72px); }
+.article-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; color: #fff; }
+.article-date { font-size: 0.82rem; color: rgba(225,232,237,0.5); font-variant-numeric: tabular-nums; }
+.article-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 7vw, 4rem); color: var(--white); line-height: 1; letter-spacing: 0.02em; margin-bottom: 20px; text-wrap: balance; }
+.article-hero .lead { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.1rem; color: rgba(225,232,237,0.8); max-width: 640px; line-height: 1.65; }
+.article-body { background: var(--offwhite); padding: clamp(40px, 6vw, 80px) 0; }
+.article-content { max-width: 720px; margin: 0 auto; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem; color: var(--text); line-height: 1.85; }
+.article-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--navy); letter-spacing: 0.02em; margin: 48px 0 16px; line-height: 1.1; }
+.article-content h3 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin: 32px 0 12px; }
+.article-content p { margin-bottom: 20px; text-wrap: pretty; }
+.article-content strong { font-weight: 600; color: var(--navy); }
+.article-content em { font-style: italic; color: var(--teal); }
+.spec-row { display: flex; flex-wrap: wrap; gap: 16px; margin: 28px 0; }
+.spec-card { background: var(--white); border-radius: 10px; padding: 16px 20px; flex: 1; min-width: 160px; }
+.spec-card .spec-label { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+.spec-card .spec-val { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; }
+.step-list { list-style: none; padding: 0; margin: 24px 0; counter-reset: steps; display: grid; gap: 12px; }
+.step-list li { counter-increment: steps; display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: var(--white); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; line-height: 1.55; }
+.step-list li::before { content: counter(steps); font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--teal); min-width: 28px; line-height: 1; }
+.warning-box { background: rgba(231,76,60,0.08); border-radius: 12px; padding: 20px 24px; margin: 28px 0; border-left: 3px solid #e74c3c; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: var(--text); line-height: 1.55; }
+.warning-box strong { color: #c0392b; }
+.article-cta { background: var(--navy); border-radius: 16px; padding: 32px; margin: 48px 0 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.article-cta p { flex: 1; color: rgba(225,232,237,0.85); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; margin: 0; line-height: 1.5; }
+.article-cta strong { color: var(--white); }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--teal); text-decoration: none; margin-bottom: 32px; }
+.back-link:hover { color: var(--white); }
+</style>
+</head>
+<body class="page-body">
+
+<header class="site-header">
+  <a href="../index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../prenotazioni.html">Servizi</a>
+    <a href="../blog.html" class="active">Diario di bordo</a>
+    <a href="../bici-custom.html">Bici Custom</a>
+    <a href="../borderless.html">Borderless</a>
+    <a href="../about.html">Chi siamo</a>
+    <a href="../contatti.html">Contatti</a>
+    <a href="../prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<section class="article-hero">
+  <div class="container">
+    <a href="../blog.html" class="back-link">← Diario di bordo</a>
+    <div class="article-meta">
+      <span class="article-cat" style="background:var(--teal)">Officina</span>
+      <span class="article-cat" style="background:var(--blue)">Tutorial</span>
+      <span class="article-date">28 Maggio 2025 · 6 min</span>
+    </div>
+    <h1>Tutorial:<br>installazione rotori</h1>
+    <p class="lead">Coppia di serraggio, sequenza a stella, rodaggio del sistema frenante. Tutto quello che serve per non fare danni e non bruciare il frenafiletti.</p>
+  </div>
+</section>
+
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <div class="spec-row">
+        <div class="spec-card"><div class="spec-label">Difficoltà</div><div class="spec-val">Facile</div></div>
+        <div class="spec-card"><div class="spec-label">Tempo stimato</div><div class="spec-val">20 min</div></div>
+        <div class="spec-card"><div class="spec-label">Coppia 6H</div><div class="spec-val">5 Nm</div></div>
+        <div class="spec-card"><div class="spec-label">Coppia CenterLock</div><div class="spec-val">40 Nm</div></div>
+      </div>
+
+      <h2>Materiali e utensili</h2>
+
+      <p>L'unico prodotto necessario per l'installazione è il <strong>frenafiletti medio</strong>. Serve solo quando si riutilizzano viti già montate in precedenza. Le viti nuove hanno già il frenafiletti pre-applicato.</p>
+
+      <p>Gli attrezzi variano in base al tipo di montaggio:</p>
+
+      <ul class="step-list">
+        <li>Chiave dinamometrica con inserto T25 (per montaggio a 6 fori, coppia 5 Nm)</li>
+        <li>Chiave dinamometrica 40/50 Nm con estrattore ghiera (per CenterLock)</li>
+        <li>Micrometro per verifica spessore rotore</li>
+        <li>Desgrassante specifico e panno privo di pelucchi</li>
+      </ul>
+
+      <h2>Verifica dell'usura prima di installare</h2>
+
+      <p>Prima di rimontare un rotore usato, misura lo spessore. Le superfici ridotte del micrometro permettono rilevazioni precise anche considerando l'usura non uniforme. <strong>Misura in tre o più punti della circonferenza.</strong></p>
+
+      <p>Il colore del disco dopo l'uso dice molto:</p>
+      <ul class="step-list">
+        <li><strong>Sfumatura dorata o brunita:</strong> temperature corrette, rotore in buono stato</li>
+        <li><strong>Colorazione blu o violacea:</strong> temperature eccessive, frenata irregolare o impianto da revisionare</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Attenzione:</strong> Blu e viola non sono estetici, sono un segnale. Un rotore surriscaldato perde uniformità e potenza frenante. Se lo vedi colorato, verificalo prima di rimontarlo.
+      </div>
+
+      <h2>Installazione a 6 fori (6H)</h2>
+
+      <h3>Preparazione</h3>
+      <p>Pulisci la superficie del mozzo da sporco e residui di frenafiletti precedente. <strong>Non toccare la superficie d'attrito del disco.</strong> Il grasso delle dita contamina il materiale frenante e riduce la potenza di frenata anche dopo il rodaggio.</p>
+
+      <h3>Frenafiletti</h3>
+      <p>Se le viti sono nuove, il frenafiletti è già applicato. Per viti riutilizzate, applicalo <em>sul foro del mozzo, non sullo stelo della vite</em>: avvitando si distribuisce uniformemente sul filetto. Non usare avvitatori elettrici: il calore degrada il frenafiletti prima che faccia presa.</p>
+
+      <h3>Sequenza di serraggio</h3>
+      <p>Avvita le sei viti a mano, poi serra in sequenza a stella. Poi ripeti la stessa sequenza a <strong>5 Nm</strong>.</p>
+
+      <div class="warning-box">
+        <strong>Non farlo a caso.</strong> Un serraggio non uniforme deforma il rotore. Un rotore deformato sfrega sulle pastiglie, va in runout e compromette la sicurezza in discesa.
+      </div>
+
+      <h2>Installazione CenterLock</h2>
+
+      <p>Posiziona il disco sul mozzo allineando le scanalature. Avvita la ghiera a mano, poi serra con l'estrattore dedicato a <strong>40 Nm</strong>. Non far slittare l'utensile durante il serraggio: le scanalature della ghiera si rovinano facilmente.</p>
+
+      <h2>Rodaggio del sistema frenante</h2>
+
+      <p>Dopo ogni installazione, il rodaggio è obbligatorio. Non serve molto:</p>
+
+      <ul class="step-list">
+        <li>Porta la bici a velocità di crociera media</li>
+        <li>Frena con decisione per pochi secondi, senza bloccare la ruota</li>
+        <li>Lascia raffreddare l'impianto tra una frenata e l'altra</li>
+        <li>Ripeti circa 10 volte, aumentando progressivamente velocità e intensità</li>
+      </ul>
+
+      <p>Il rodaggio omogeneizza il trasferimento del materiale frenante su tutta la superficie del disco. Senza di esso, le prime frenate pesanti in discesa sorprendono.</p>
+
+      <div class="article-cta">
+        <p><strong>Preferisci farlo fare a noi?</strong><br>Portaci la bici. Installiamo rotori, eseguiamo il rodaggio, verifichiamo tutto l'impianto frenante. Prenotazione online in 30 secondi.</p>
+        <a href="../prenotazioni.html" class="btn btn-teal">Prenota assistenza</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="../prenotazioni.html">Riparazione</a>
+        <a href="../prenotazioni.html">Bike Fitting</a>
+        <a href="../bici-custom.html">Bici Custom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="../blog.html">Diario di bordo</a>
+        <a href="../borderless.html">Borderless Bikes</a>
+        <a href="../about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+393715517275">371 551 7275</a>
+        <a href="../contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/DanielePomin/" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point</span>
+      <a href="../contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

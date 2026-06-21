@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dischi freno bici: tecnologie, materiali e scelta — DPLab Bike Point</title>
+<meta name="description" content="Acciaio inox, alluminio, laser cutting, CenterLock. Guida tecnica completa ai dischi freno per bici. DPLab Bike Point, Legnago (VR).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<style>
+.article-hero { background: var(--navy); padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 5vw, 72px); }
+.article-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; color: #fff; }
+.article-date { font-size: 0.82rem; color: rgba(225,232,237,0.5); font-variant-numeric: tabular-nums; }
+.article-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 7vw, 4rem); color: var(--white); line-height: 1; letter-spacing: 0.02em; margin-bottom: 20px; text-wrap: balance; }
+.article-hero .lead { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.1rem; color: rgba(225,232,237,0.8); max-width: 640px; line-height: 1.65; }
+.article-body { background: var(--offwhite); padding: clamp(40px, 6vw, 80px) 0; }
+.article-content { max-width: 720px; margin: 0 auto; font-family: 'Source Serif 4', Georgia, serif; font-size: 1rem; color: var(--text); line-height: 1.85; }
+.article-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--navy); letter-spacing: 0.02em; margin: 48px 0 16px; line-height: 1.1; }
+.article-content h3 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin: 32px 0 12px; }
+.article-content p { margin-bottom: 20px; text-wrap: pretty; }
+.article-content strong { font-weight: 600; color: var(--navy); }
+.article-content em { font-style: italic; color: var(--teal); }
+.material-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+@media (max-width: 600px) { .material-grid { grid-template-columns: 1fr; } }
+.material-card { background: var(--white); border-radius: 12px; padding: 20px; }
+.material-card h4 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.material-card p { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.55; }
+.material-card .tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--lighter); color: var(--navy); padding: 3px 8px; border-radius: 6px; display: inline-block; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; }
+.info-table th { background: var(--navy); color: var(--white); padding: 10px 16px; text-align: left; font-weight: 600; }
+.info-table td { padding: 10px 16px; border-bottom: 1px solid var(--lighter); }
+.info-table tr:nth-child(even) td { background: var(--white); }
+.article-cta { background: var(--navy); border-radius: 16px; padding: 32px; margin: 48px 0 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.article-cta p { flex: 1; color: rgba(225,232,237,0.85); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; margin: 0; line-height: 1.5; }
+.article-cta strong { color: var(--white); }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--teal); text-decoration: none; margin-bottom: 32px; }
+.back-link:hover { color: var(--white); }
+</style>
+</head>
+<body class="page-body">
+
+<header class="site-header">
+  <a href="../index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+  <button class="nav-toggle" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../prenotazioni.html">Servizi</a>
+    <a href="../blog.html" class="active">Diario di bordo</a>
+    <a href="../bici-custom.html">Bici Custom</a>
+    <a href="../borderless.html">Borderless</a>
+    <a href="../about.html">Chi siamo</a>
+    <a href="../contatti.html">Contatti</a>
+    <a href="../prenotazioni.html" class="nav-cta">Prenota ora</a>
+  </nav>
+</header>
+
+<section class="article-hero">
+  <div class="container">
+    <a href="../blog.html" class="back-link">← Diario di bordo</a>
+    <div class="article-meta">
+      <span class="article-cat" style="background:#7c3aed">Tech</span>
+      <span class="article-cat" style="background:var(--blue)">Officina</span>
+      <span class="article-date">3 Maggio 2025 · 8 min</span>
+    </div>
+    <h1>Dischi freno:<br>tecnologie avanzate,<br>materiali e processi</h1>
+    <p class="lead">Acciaio inox, alluminio, laser cutting con tolleranze di ±0.05mm, trattamenti termici fino a 70 HRC. Quello che c'è dietro un disco freno per bici.</p>
+  </div>
+</section>
+
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+
+      <p>I freni a disco sulla bici sono superiori alle vecchie pattine su tre fronti: potenza frenante costante anche in bagnato, maggiore modulabilità sotto sforzo, indipendenza dall'usura del cerchio. Ma quello che succede dentro il disco, tra metallurgia e ingegneria termica, è raramente raccontato.</p>
+
+      <h2>Materiali</h2>
+
+      <div class="material-grid">
+        <div class="material-card">
+          <div class="tag">Struttura principale</div>
+          <h4>Acciaio inossidabile</h4>
+          <p>Leghe AISI 410, 420, SUS 410. Resistono fino a 800°C senza perdere integrità strutturale. La scelta di default per la superficie frenante.</p>
+        </div>
+        <div class="material-card">
+          <div class="tag">Spider/supporto</div>
+          <h4>Alluminio 7075-T6 (Ergal)</h4>
+          <p>Riduzione di peso fino al 30% rispetto all'acciaio integrale. Usato nelle versioni a due pezzi (spider + anello) dei brand premium.</p>
+        </div>
+      </div>
+
+      <h2>Processi produttivi</h2>
+
+      <h3>Taglio laser</h3>
+      <p>Le aperture di ventilazione e il profilo esterno vengono tagliati con laser a fibra o CO₂. Le tolleranze raggiungono <strong>±0.05 mm</strong>: significa che i fori di ventilazione, i pattern wave, le finestre di alleggerimento sono posizionati con precisione millimetrica. Non è estetica, è bilanciamento del calore.</p>
+
+      <h3>Lavorazione CNC</h3>
+      <p>Dopo il taglio, le superfici di attrito e i fori di montaggio vengono rifiniti a CNC per garantire planarità e ortogonalità. Un disco non piano sfrega, scalda in modo irregolare e si deforma ulteriormente nel tempo.</p>
+
+      <h3>Trattamenti termici</h3>
+      <p>La nitrurazione aumenta la durezza superficiale <em>fino a 70 HRC</em>: uno strato molto sottile ma estremamente duro che resiste all'abrasione delle pastiglie mantenendo un coefficiente d'attrito costante. Alcuni produttori usano anche la cementazione per parti specifiche dello spider.</p>
+
+      <h2>Gestione termica</h2>
+
+      <p>Il calore generato dalla frenata deve essere dissipato rapidamente. Le soluzioni variano:</p>
+
+      <ul style="padding-left:20px;margin:16px 0">
+        <li style="margin-bottom:12px"><strong>Pattern wave (ondulato):</strong> aumenta la superficie di dissipazione e riduce il contatto continuo con la pastiglia, abbassando il picco di temperatura</li>
+        <li style="margin-bottom:12px"><strong>Design sandwich:</strong> strato esterno in acciaio + nucleo in alluminio + strato esterno in acciaio. Shimano Ice-Tech: riduzione di temperatura operativa <strong>fino al 20%</strong></li>
+        <li style="margin-bottom:12px"><strong>Aperture di ventilazione:</strong> fori e finestre che creano flusso d'aria durante la rotazione</li>
+      </ul>
+
+      <h2>Guida alla scelta</h2>
+
+      <table class="info-table">
+        <thead>
+          <tr><th>Parametro</th><th>Valore</th><th>Uso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Diametro</td><td>160 mm</td><td>XC, gravel, asfalto, pesi leggeri</td></tr>
+          <tr><td>Diametro</td><td>180 mm</td><td>Trail, enduro, pesi medi</td></tr>
+          <tr><td>Diametro</td><td>200–220 mm</td><td>Enduro/DH pesante, discese lunghe</td></tr>
+          <tr><td>Spessore</td><td>1.8 mm</td><td>Standard MTB/gravel</td></tr>
+          <tr><td>Spessore</td><td>2.3 mm</td><td>E-bike, carichi elevati</td></tr>
+          <tr><td>Spessore minimo usura</td><td>1.5–1.7 mm</td><td>Verifica con micrometro</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Brand principali</h3>
+      <p><strong>Galfer:</strong> ampia gamma, ottimo rapporto prestazione/prezzo, diffuso nel mercato aftermarket. <strong>Shimano Ice-Tech:</strong> tecnologia sandwich proprietaria, gestione termica superiore nei freni Shimano. <strong>SRAM:</strong> integrazione ottimale con le proprie pinze, disponibile in versioni stealth e standard. <strong>Magura:</strong> specializzati in E-bike, dischi più spessi e resistenti.</p>
+
+      <h2>Cosa guardare quando compri</h2>
+
+      <p>In ordine di priorità: compatibilità di montaggio con il tuo mozzo (6H o CenterLock), diametro compatibile con il tuo adattatore, spessore compatibile con le guide della tua pinza. Il materiale e il brand vengono dopo.</p>
+
+      <div class="article-cta">
+        <p><strong>Non sai quale disco monta la tua bici?</strong><br>Portala in officina. Verifichiamo usura, compatibilità e ti consigliamo il ricambio corretto. Nessun costo di consulenza.</p>
+        <a href="../prenotazioni.html" class="btn btn-teal">Prenota una visita</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="site-logo">DP<span class="accent">LAB</span></a>
+        <p>Ciclofficina artigiana a Legnago (VR). Riparazione, fitting, custom, corsi e consulenza per chi pedala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <a href="../prenotazioni.html">Riparazione</a>
+        <a href="../prenotazioni.html">Bike Fitting</a>
+        <a href="../bici-custom.html">Bici Custom</a>
+      </div>
+      <div class="footer-col">
+        <h4>Esplora</h4>
+        <a href="../blog.html">Diario di bordo</a>
+        <a href="../borderless.html">Borderless Bikes</a>
+        <a href="../about.html">Chi siamo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <a href="tel:+393715517275">371 551 7275</a>
+        <a href="../contatti.html">Legnago (VR)</a>
+        <a href="https://www.instagram.com/DPLab_bikepoint" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/DanielePomin/" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DPLab Bike Point</span>
+      <a href="../contatti.html">Contatti</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
